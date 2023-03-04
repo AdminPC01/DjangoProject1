@@ -1,0 +1,22 @@
+{%extends 'main/base.html'%}
+
+{% block title %}
+  <title>Create</title>
+{% endblock %}
+
+{% block content %}
+<div>
+  <h3>Create page</h3>
+  <form method = "post", action = "/create/" >
+    {% csrf_token %}
+    <div class = "input-group mb-3">
+       <div class = "input-group-prepend ">
+
+         <button type = "submit", name="save", class="btn btn-dark"> Create </button>
+         {{form.name}}
+       </div>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

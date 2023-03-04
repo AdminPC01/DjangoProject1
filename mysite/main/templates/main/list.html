@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    <title>Yahoo</title>
+{% endblock %}
+
+{% block content %}
+    <h1>{{ls.name}}</h1>
+<form method = "post" , action="#">
+    {% csrf_token %}
+          {% for item in ls.item_set.all %}
+        <div class = "input-group mb-4">
+        <div class = "input-group-prepend">
+        <div class = "input-group-text">
+
+            {%if item.complete == True%}
+           <li><input type = "checkbox", value="clicked", name="c{{item.id}}" checked></li>
+            {%else%}
+            <li><input type = "checkbox", value="clicked", name="c{{item.id}}"></li>
+            {%endif%}
+        </div>
+
+        </div>
+             <input type = "text" , value="{{item.text}}", class = "form-control">
+
+{% endfor %}
+        </div>
+      <div class = "input-group mb-4">
+        <div class = "input-group-prepend">
+            <button type="submit" , name = "save", value="save", class="btn btn-dark" >Save</button>
+            <input type = "text" name="new">
+            <button type="submit" , name = "newItem", value="newItem", class="btn btn-dark">Add Item</button>
+        </div>
+      </div>
+</form>
+{% endblock %}

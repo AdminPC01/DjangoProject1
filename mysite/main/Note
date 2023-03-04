@@ -1,0 +1,7 @@
+
+t.filter(name__startswith = "A")
+t.filter(id =3)
+S.item_set.create(text = "Earn much money", complete = False)
+del_object = t.get(id = 1)
+del_object.delete()
+python manage.py createsuperuser
